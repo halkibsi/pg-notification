@@ -45,6 +45,7 @@ var app = {
 			}
 		}); // end ajax request
 	},
+	
 	loadPostsList: function(data){
 		app.testzone.innerHTML = '<ul>';
 		for ( var i=0; i < data.posts.length; i++) {
@@ -55,7 +56,7 @@ var app = {
 			var excerpt = data.posts[i].excerpt;
 			var content = data.posts[i].content;
 
-			app.testzone.innerHTML += '<li><img src="' + thumbnail + '" /><h3>' + title + '</h3>' + excerpt + '</a></li>';
+			app.testzone.innerHTML += '<li><h3>' + title + '</h3><img src="' + thumbnail + '" /></li>';
 		} // end for loop
 		app.testzone.innerHTML += '</ul>';
 	},
