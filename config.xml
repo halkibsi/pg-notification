@@ -2,12 +2,12 @@
 <widget
 	xmlns     = "http://www.w3.org/ns/widgets"
 	xmlns:gap = "http://phonegap.com/ns/1.0"
-	id        = "com.halkibsi.pg-events"
+	id        = "com.halkibsi.pg-notification"
 	version   = "0.1">
 	
-    <name>PG Events</name>
+    <name>PG Notification</name>
 
-    <description>PG Events</description>
+    <description>PG Notification</description>
 
     <author href="http://halkibsi.com" email="halkibsi@halkibsi.com">halkibsi</author>
 
@@ -26,6 +26,7 @@
         permission on your app, which PhoneGap requires.
     -->
     <preference name="permissions"                value="none"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
 	<!-- to enable individual permissions use the following examples
 	<feature name="http://api.phonegap.com/1.0/battery"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
@@ -33,8 +34,7 @@
 	<feature name="http://api.phonegap.com/1.0/file"/>
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/media"/>
-	<feature name="http://api.phonegap.com/1.0/network"/>
-	<feature name="http://api.phonegap.com/1.0/notification"/> -->
+	<feature name="http://api.phonegap.com/1.0/network"/> -->
 
 
 
