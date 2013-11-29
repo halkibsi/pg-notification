@@ -17,17 +17,53 @@ var app = {
         //window.addEventListener("batterycritical", app.onBatteryCritical, false);
         //document.addEventListener("menubutton", app.onMenuButton, false);
         app.testzone = document.getElementById("test-zone");
-		app.testzone.innerHTML += "Ready<br>";
+		app.testzone.innerHTML += "Ready";
 		app.callJSON();
     },
 	
     onPause: function(){
-		//app.testzone.innerHTML += "Locale: " + locale.value + "<br>";
+		// retrieve data
+		$.ajax({
+			type: "GET",
+			url: "http://ndcye.org/api/get_posts/?post_type=post&cat=3&count=1&callback=?",
+			dataType: "jsonp",
+			timeout:10000,
+			error: function(){ alert("there was an error!"); },
+			
+			success: function(data){
+				for ( var i=0; i < data.posts.length; i++) {
+					
+					var title = data.posts[i].title;
+		
+					navigator.notification.alert(
+						title,  // message
+						app.showNoticeinHTML,         // callback
+						'Urgent News',            // title
+						'Done'                  // buttonName
+					);
+					
+				} // end for loop
+			}
+		}); // end ajax request
     },
 	
     onResume: function(){
 		//app.testzone.innerHTML += "Locale: " + locale.value + "<br>";
     },
+	
+	/************/
+	/************/
+	/************/
+	
+	testZoneRest: function(){
+		app.testzone.innerHTML = "";
+	},
+	
+	/************/
+	
+	showNoticeinHTML: function(){
+		// do nothing
+	},
 	
 	/************/
 	
@@ -61,8 +97,4 @@ var app = {
 		app.testzone.innerHTML += '</ul>';
 	},
 	
-	
-	testZoneRest: function(){
-		app.testzone.innerHTML = "";
-	}
 };
